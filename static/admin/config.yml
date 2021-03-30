@@ -1,0 +1,258 @@
+backend:
+  name: git-gateway
+  branch: master
+  commit_messages:
+    create: 'Create {{collection}} “{{slug}}”'
+    update: 'Update {{collection}} “{{slug}}”'
+    delete: 'Delete {{collection}} “{{slug}}”'
+    uploadMedia: '[skip ci] Upload “{{path}}”'
+    deleteMedia: '[skip ci] Delete “{{path}}”'
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: 'pages'
+    label: 'Pages'
+    files:
+      - file: 'src/pages/index.md'
+        label: 'Landing Page'
+        name: 'index'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'index-page',
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: Image, name: image, widget: image }
+          - {
+              label: Introducing,
+              name: intro,
+              widget: list,
+              fields:
+                [
+                  { label: Image, name: image, widget: image },
+                  { label: Title, name: title, widget: string },
+                  { label: Description, name: text, widget: text },
+                ],
+            }
+          - {
+              label: What we do,
+              name: whatwedo,
+              widget: list,
+              fields:
+                [
+                  { label: Image, name: image, widget: image },
+                  { label: Text, name: text, widget: text },
+                ],
+            }
+          - {
+              label: OUR FIRST PROJECTS and DEVELOPMENT,
+              name: ourFirstProject,
+              widget: list,
+              fields:
+                [
+                  { label: Image, name: image, widget: image },
+                  { label: Text, name: text, widget: text },
+                  { label: More, name: link, widget: string },
+                ],
+            }
+          - { label: Main partners, name: mainPartners, widget: image }
+          - {
+              label: Prince,
+              name: prince,
+              widget: object,
+              fields:
+                [
+                  { label: Image, name: image, widget: image },
+                  { label: Title, name: title, widget: text },
+                  { label: Function, name: function, widget: text },
+                  { label: Name, name: name, widget: string },
+                ],
+            }
+
+      - file: 'src/pages/about/index.md'
+        label: 'About'
+        name: 'about'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'about-page',
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: Image, name: image, widget: image }
+          - {
+              label: Strategic partnership,
+              name: strategicPartnership,
+              widget: object,
+              fields:
+                [
+                  { label: Paragraph 1, name: paragraph_1, widget: text },
+                  { label: Paragraph 2, name: paragraph_2, widget: text },
+                  { label: Paragraph 3, name: paragraph_3, widget: text },
+                ],
+            }
+
+          - {
+              label: 'our values',
+              name: 'ourValues',
+              widget: object,
+              fields:
+                [
+                  { label: Intro, name: intro, widget: text },
+                  {
+                    label: Values List,
+                    name: valuesList,
+                    widget: 'list',
+                    fields:
+                      [
+                        { label: Title, name: title, widget: string },
+                        { label: Text, name: text, widget: text },
+                      ],
+                  },
+                ],
+            }
+          - {
+              label: leadership,
+              name: leadership,
+              widget: object,
+              fields:
+                [
+                  {
+                    label: Team Members,
+                    name: members,
+                    widget: list,
+                    fields:
+                      [
+                        { label: Image, name: image, widget: image },
+                        { label: Name, name: name, widget: string },
+                        { label: Function, name: function, widget: string },
+                        { label: Bio, name: bio, widget: text },
+                      ],
+                  },
+                  { label: Description, name: description, widget: text },
+                ],
+            }
+          - {
+              label: Our Gratitude,
+              name: gratitude,
+              widget: list,
+              fields:
+                [
+                  { label: Image, name: image, widget: image },
+                  { label: text, name: text, widget: text },
+                ],
+            }
+          - {
+              label: Quantum nation,
+              name: quantumNation,
+              widget: object,
+              fields:
+                [
+                  { label: Text, name: text, widget: text },
+                  { label: Founder, name: founder, widget: text },
+                ],
+            }
+
+      - file: 'src/pages/our-projects/index.md'
+        label: 'our Projects'
+        name: 'our-projects'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'our-projects-page',
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: Image, name: image, widget: image }
+          - { label: Introduction, name: introduction, widget: text }
+          - {
+              label: OUR FIRST PROJECTS,
+              name: ourFirstProject,
+              widget: list,
+              fields:
+                [
+                  { label: Image, name: image, widget: image },
+                  { label: Text, name: text, widget: text },
+                  { label: More, name: link, widget: string },
+                ],
+            }
+          - {
+              label: OUR SECOND PHASE PROJECTS,
+              name: ourSecondProject,
+              widget: list,
+              fields:
+                [
+                  { label: Image, name: image, widget: image },
+                  { label: Text, name: text, widget: text },
+                  { label: More, name: link, widget: string },
+                ],
+            }
+      - file: 'src/pages/contact/index.md'
+        label: 'contact'
+        name: 'contact'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'contact-page',
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: Phone, name: phone, widget: string }
+          - { label: Email, name: email, widget: string }
+          - { label: Address, name: address, widget: string }
+
+      - file: 'src/pages/terms/index.md'
+        label: 'Terms'
+        name: 'terms'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'terms-page',
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+
+      - file: 'src/pages/privacy-policy/index.md'
+        label: 'Privacy Policy'
+        name: 'privacyPolicy'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'privacy-policy-page',
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+      - file: 'src/pages/deployment-ready/index.md'
+        label: 'Deployement Ready'
+        name: 'DeployementReady'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'deployment-ready-page',
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: Intro, name: description, widget: text }
+          - {
+              label: 'deployment ready',
+              name: 'deploymentReady',
+              widget: 'list',
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Image, name: image, widget: image },
+                  { label: Description, name: description, widget: text },
+                ],
+            }
