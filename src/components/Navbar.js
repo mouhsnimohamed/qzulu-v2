@@ -1,13 +1,13 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import logo from '../img/logo.jpg';
+import React from "react";
+import { Link } from "gatsby";
+import logo from "../img/logo.jpg";
 
 const Navbar = class extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       active: false,
-      navBarActiveClass: '',
+      navBarActiveClass: "",
     };
   }
 
@@ -22,10 +22,10 @@ const Navbar = class extends React.Component {
         // set the class in state for the navbar accordingly
         this.state.active
           ? this.setState({
-              navBarActiveClass: 'is-active',
+              navBarActiveClass: "is-active",
             })
           : this.setState({
-              navBarActiveClass: '',
+              navBarActiveClass: "",
             });
       }
     );
@@ -37,12 +37,13 @@ const Navbar = class extends React.Component {
         <div className="container">
           <div className="navbar-brand">
             <Link to="/" className="logo" title="QZulu Token">
-              <img src={logo} alt="QZulu Token" style={{ width: '125px' }} />
+              <img src={logo} alt="QZulu Token" style={{ width: "125px" }} />
             </Link>
             <div
               className={`navbar-burger burger ${this.state.navBarActiveClass}`}
               data-target="navMenu"
-              onClick={() => this.toggleHamburger()}>
+              onClick={() => this.toggleHamburger()}
+            >
               <span />
               <span />
               <span />
@@ -50,30 +51,35 @@ const Navbar = class extends React.Component {
           </div>
           <div
             id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}>
+            className={`navbar-menu ${this.state.navBarActiveClass}`}
+          >
             <div className="navbar-end has-text-centered">
               <Link
                 activeClassName="current"
                 className="navbar-item"
-                to="/about">
+                to="/about"
+              >
                 About us
               </Link>
               <Link
                 activeClassName="current"
                 className="navbar-item"
-                to="/our-projects">
+                to="/our-projects"
+              >
                 Our projects
               </Link>
               <Link
                 activeClassName="current"
                 className="navbar-item"
-                to="/partners">
+                to="/partners"
+              >
                 partners
               </Link>
               <Link
                 activeClassName="current"
                 className="navbar-item"
-                to="/contact-us">
+                to="#contact"
+              >
                 Contact us
               </Link>
             </div>
